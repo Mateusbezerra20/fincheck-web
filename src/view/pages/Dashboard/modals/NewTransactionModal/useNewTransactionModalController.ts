@@ -57,7 +57,8 @@ export function useNewTransactionModalController() {
         type: newTransactionType!,
       })
 
-      queryClient.invalidateQueries({ queryKey: ['transactions'] })
+      queryClient.invalidateQueries({ queryKey: ['transactions'] });
+      queryClient.invalidateQueries({ queryKey: ['bankAccounts'] });
       handleNewTransactionModalClose();
       reset();
       toast.success(newTransactionType === 'EXPENSE'
